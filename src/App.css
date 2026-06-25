@@ -321,3 +321,72 @@ input[type="time"] {
   -webkit-text-fill-color: #64748b !important;
   opacity: 1 !important;
 }
+/* FINAL iPhone dark mode fix */
+@media (prefers-color-scheme: dark) {
+  html,
+  body,
+  #root {
+    background: linear-gradient(
+      135deg,
+      #dbeafe 0%,
+      #fef3c7 50%,
+      #e0f2fe 100%
+    ) !important;
+    color: #111827 !important;
+  }
+
+  .container {
+    color: #111827 !important;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  .result {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(240, 249, 255, 0.95)
+    ) !important;
+  }
+
+  .result h2 {
+    color: #020617 !important;
+    -webkit-text-fill-color: #020617 !important;
+  }
+
+  .result p {
+    color: #475569 !important;
+    -webkit-text-fill-color: #475569 !important;
+  }
+
+  .result h3 {
+    color: #5b5568 !important;
+    -webkit-text-fill-color: #5b5568 !important;
+  }
+
+  .input,
+  input,
+  input[type="text"],
+  input[type="time"] {
+    background: #ffffff !important;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+  }
+
+  .input::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+    opacity: 1 !important;
+  }
+
+  .suggestions {
+    background: #ffffff !important;
+  }
+
+  .suggestion-item {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+  }
+}
