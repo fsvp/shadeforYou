@@ -283,3 +283,41 @@ input[type="time"] {
     line-height: 1.4;
   }
 }
+/* Strong iPhone dark mode fix */
+.container,
+.card,
+.result,
+.result h2,
+.result p,
+.result h3 {
+  color-scheme: only light;
+}
+
+.result h2 {
+  color: #020617 !important;
+  -webkit-text-fill-color: #020617 !important;
+}
+
+.result p {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+}
+
+.result h3 {
+  color: #5b5568 !important;
+  -webkit-text-fill-color: #5b5568 !important;
+}
+
+.input,
+input[type="text"],
+input[type="time"] {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.input::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  opacity: 1 !important;
+}

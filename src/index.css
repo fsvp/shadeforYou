@@ -6,7 +6,7 @@
   font-family: Inter, Arial, sans-serif;
   color: #111827;
   background: #dbeafe;
-  color-scheme: light only;
+  color-scheme: only light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,8 +19,9 @@ body,
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: #111827;
-  background: #dbeafe;
+  color: #111827 !important;
+  background: #dbeafe !important;
+  color-scheme: only light;
 }
 
 body {
@@ -36,17 +37,25 @@ input,
 textarea,
 select {
   font-family: inherit;
-  color: #111827;
-  color-scheme: light only;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  color-scheme: only light;
 }
 
 input {
-  -webkit-text-fill-color: #111827;
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 input::placeholder {
-  color: #64748b;
-  opacity: 1;
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: inherit;
 }
 
 a {
