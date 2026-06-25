@@ -1,5 +1,19 @@
-body {
+:root {
+  color-scheme: only light;
+}
+
+html,
+body,
+#root {
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #111827;
+  background: #dbeafe;
+  color-scheme: only light;
+}
+
+body {
   font-family: Inter, Arial, sans-serif;
   background: linear-gradient(
     135deg,
@@ -7,13 +21,14 @@ body {
     #fef3c7 50%,
     #e0f2fe 100%
   );
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 40px 24px;
+  color: #111827;
 }
 
 h1 {
@@ -21,11 +36,12 @@ h1 {
   font-size: 3.6rem;
   font-weight: 800;
   color: #1e293b;
+  -webkit-text-fill-color: #1e293b;
   margin-bottom: 32px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   padding: 32px;
@@ -46,15 +62,28 @@ h1 {
   width: 100%;
 }
 
-.input {
+.input,
+input[type="text"],
+input[type="time"] {
   width: 100%;
   box-sizing: border-box;
   padding: 16px;
   border-radius: 16px;
   border: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
+  color: #111827;
+  -webkit-text-fill-color: #111827;
   font-size: 16px;
   box-shadow: inset 0 0 0 1px #e2e8f0;
+  color-scheme: only light;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: #64748b;
+  -webkit-text-fill-color: #64748b;
+  opacity: 1;
 }
 
 .input:focus {
@@ -67,7 +96,7 @@ h1 {
   top: 58px;
   left: 0;
   right: 0;
-  background: white;
+  background: #ffffff;
   border: 1px solid #dbe3f0;
   border-radius: 14px;
   max-height: 220px;
@@ -82,7 +111,9 @@ h1 {
   cursor: pointer;
   border-bottom: 1px solid #eef2f7;
   color: #1f2937;
+  -webkit-text-fill-color: #1f2937;
   line-height: 1.4;
+  background: #ffffff;
 }
 
 .suggestion-item:hover {
@@ -94,19 +125,16 @@ h1 {
 }
 
 .button {
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #3b82f6
-  );
-  color: white;
+  height: 54px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   border: none;
   border-radius: 16px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: 0.25s ease;
-  height: 54px;
 }
 
 .button:hover {
@@ -114,31 +142,52 @@ h1 {
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
 }
 
+.swap-button {
+  height: 54px;
+  width: 54px;
+  border: none;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #2563eb;
+  -webkit-text-fill-color: #2563eb;
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+  transition: 0.25s ease;
+}
+
+.swap-button:hover {
+  background: #eff6ff;
+  transform: rotate(180deg);
+}
+
 .result {
   margin-top: 28px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(240, 249, 255, 0.9)
-  );
+  background: linear-gradient(135deg, #ffffff, #f0f9ff);
   padding: 28px;
   border-radius: 24px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  color: #111827;
 }
 
 .result h2 {
   font-size: 2rem;
   margin-bottom: 8px;
+  color: #020617;
+  -webkit-text-fill-color: #020617;
 }
 
 .result p {
   color: #475569;
+  -webkit-text-fill-color: #475569;
   font-size: 1.05rem;
 }
 
 .result h3 {
-  color: #6b6475;
+  color: #5b5568;
+  -webkit-text-fill-color: #5b5568;
 }
 
 .progress-bar {
@@ -152,12 +201,7 @@ h1 {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #f59e0b,
-    #fb923c,
-    #ef4444
-  );
+  background: linear-gradient(90deg, #f59e0b, #fb923c, #ef4444);
   border-radius: inherit;
   transition: width 0.5s ease;
 }
@@ -168,6 +212,32 @@ h1 {
   overflow: hidden;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body,
+  #root {
+    color: #111827;
+    background: #dbeafe;
+  }
+
+  body {
+    background: linear-gradient(
+      135deg,
+      #dbeafe 0%,
+      #fef3c7 50%,
+      #e0f2fe 100%
+    );
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .result {
+    background: linear-gradient(135deg, #ffffff, #f0f9ff);
+  }
 }
 
 @media (max-width: 900px) {
@@ -186,88 +256,31 @@ h1 {
   .button {
     height: 54px;
   }
-}
-.swap-button {
-  height: 54px;
-  width: 54px;
-  border: none;
-  border-radius: 16px;
-  background: white;
-  color: #2563eb;
-  font-size: 28px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 1px #e2e8f0;
-  transition: 0.25s ease;
-}
 
-.swap-button:hover {
-  background: #eff6ff;
-  transform: rotate(180deg);
-}
-
-@media (max-width: 900px) {
   .swap-button {
     width: 100%;
   }
 }
-/* Force same look in iPhone dark/light mode */
-:root {
-  color-scheme: light;
-}
 
-html,
-body {
-  color: #111827;
-  background-color: #dbeafe;
-}
-
-input,
-button,
-textarea,
-select {
-  color-scheme: light;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-/* Input text and placeholder should stay visible */
-.input {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-}
-
-.input::placeholder {
-  color: #64748b !important;
-  opacity: 1 !important;
-}
-
-/* Result text should not turn white on iPhone dark mode */
-.result h2 {
-  color: #020617 !important;
-  opacity: 1 !important;
-}
-
-.result p {
-  color: #475569 !important;
-  opacity: 1 !important;
-}
-
-.result h3 {
-  color: #5b5568 !important;
-  opacity: 1 !important;
-}
-
-/* Time input fix for iPhone */
-input[type="time"] {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Mobile text sizing */
 @media (max-width: 600px) {
+  .container {
+    padding: 24px 14px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .result {
+    padding: 24px 18px;
+  }
+
   .result h2 {
     font-size: 1.65rem;
     line-height: 1.3;
@@ -282,111 +295,8 @@ input[type="time"] {
     font-size: 1.15rem;
     line-height: 1.4;
   }
-}
-/* Strong iPhone dark mode fix */
-.container,
-.card,
-.result,
-.result h2,
-.result p,
-.result h3 {
-  color-scheme: only light;
-}
 
-.result h2 {
-  color: #020617 !important;
-  -webkit-text-fill-color: #020617 !important;
-}
-
-.result p {
-  color: #475569 !important;
-  -webkit-text-fill-color: #475569 !important;
-}
-
-.result h3 {
-  color: #5b5568 !important;
-  -webkit-text-fill-color: #5b5568 !important;
-}
-
-.input,
-input[type="text"],
-input[type="time"] {
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-.input::placeholder {
-  color: #64748b !important;
-  -webkit-text-fill-color: #64748b !important;
-  opacity: 1 !important;
-}
-/* FINAL iPhone dark mode fix */
-@media (prefers-color-scheme: dark) {
-  html,
-  body,
-  #root {
-    background: linear-gradient(
-      135deg,
-      #dbeafe 0%,
-      #fef3c7 50%,
-      #e0f2fe 100%
-    ) !important;
-    color: #111827 !important;
-  }
-
-  .container {
-    color: #111827 !important;
-  }
-
-  .card {
-    background: rgba(255, 255, 255, 0.82) !important;
-  }
-
-  .result {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.98),
-      rgba(240, 249, 255, 0.95)
-    ) !important;
-  }
-
-  .result h2 {
-    color: #020617 !important;
-    -webkit-text-fill-color: #020617 !important;
-  }
-
-  .result p {
-    color: #475569 !important;
-    -webkit-text-fill-color: #475569 !important;
-  }
-
-  .result h3 {
-    color: #5b5568 !important;
-    -webkit-text-fill-color: #5b5568 !important;
-  }
-
-  .input,
-  input,
-  input[type="text"],
-  input[type="time"] {
-    background: #ffffff !important;
-    color: #111827 !important;
-    -webkit-text-fill-color: #111827 !important;
-  }
-
-  .input::placeholder {
-    color: #64748b !important;
-    -webkit-text-fill-color: #64748b !important;
-    opacity: 1 !important;
-  }
-
-  .suggestions {
-    background: #ffffff !important;
-  }
-
-  .suggestion-item {
-    color: #111827 !important;
-    -webkit-text-fill-color: #111827 !important;
+  .progress-bar {
+    height: 16px;
   }
 }
